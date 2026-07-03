@@ -1,4 +1,6 @@
 class routes {
-  static String home = '/';
-  static String output = '/output';
+  static const String home = '/';
+  static const String output = '/output';
+
+  static const List<String> all = [home, output];
 }

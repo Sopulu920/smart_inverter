@@ -13,6 +13,9 @@ void main() {
   );
 }
 
+int index = 0;
+Color appbar_color = Color(0xFF3cc33e);
+
 class home_screen extends StatelessWidget {
   const home_screen({super.key});
 
@@ -20,16 +23,15 @@ class home_screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Home Screen'),
-        backgroundColor: Color(0xFF3cc33e),
+        backgroundColor: appbar_color,
       ),
 
       body: Text("Hello"),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          if (index == 0) {
-            Navigator.pushNamed(context, '/output');
-          }
+        onTap: (i) {
+          Navigator.pushNamed(context, routes.all[i]);
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
@@ -46,9 +48,22 @@ class output_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Output Screen')),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('Output Screen'),
+        backgroundColor: appbar_color,
+      ),
 
       body: Text("how are you"),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (i) {
+          Navigator.pushNamed(context, routes.all[i]);
+        },
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.power), label: "Output"),
+        ],
+      ),
     );
   }
 }
