@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_inverter/component/nav_bar.dart';
 import 'package:smart_inverter/screen/home/home.dart';
 import 'package:smart_inverter/screen/output/output.dart';
 import 'package:smart_inverter/util/route.dart';
@@ -31,15 +32,7 @@ class home_screen extends StatelessWidget {
       ),
 
       body: home_body(),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (i) {
-          Navigator.pushNamed(context, routes.all[i]);
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.power), label: "Output"),
-        ],
-      ),
+      bottomNavigationBar: custom_tab(),
     );
   }
 }
@@ -57,15 +50,7 @@ class output_screen extends StatelessWidget {
       ),
 
       body: output_body(),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (i) {
-          Navigator.pushNamed(context, routes.all[i]);
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.monitor), label: "Monitor"),
-        ],
-      ),
+      bottomNavigationBar: custom_tab(),
     );
   }
 }

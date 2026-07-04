@@ -36,6 +36,7 @@ class home_body extends StatelessWidget {
                   ), //Battery
 
                   SizedBox(
+                    // width: 200,
                     height: 100,
                     child: ListView.builder(
                       // controller: _scrollController,
@@ -50,6 +51,7 @@ class home_body extends StatelessWidget {
                         final stats = statList[index];
                         return Padding(
                           padding: EdgeInsetsGeometry.all(3),
+                          // padding: EdgeInsetsGeometry.symmetric(horizontal: 30),
                           child: StatCard(
                             label: stats.statLabel,
                             value: stats.statValue,

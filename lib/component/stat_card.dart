@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_inverter/component/styled_text.dart';
 
-double size = 300;
+double size = 150;
 
 class StatCard extends StatelessWidget {
   const StatCard({
@@ -43,8 +43,8 @@ class StatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 10, left: 5),
-      width: size + 40,
-      height: size,
+      width: 150,
+      // height: size,
       decoration: BoxDecoration(
         color: Color(0xB37A7D85),
         // border: Border.all(),
