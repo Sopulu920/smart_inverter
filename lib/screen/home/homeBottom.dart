@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:smart_inverter/component/styled_text.dart';
+import 'package:smart_inverter/component/load_btn.dart';
+import 'package:smart_inverter/util/output_class.dart';
+// import 'package:smart_inverter/component/styled_text.dart';
 
-class Homebottom extends StatelessWidget {
+class Homebottom extends StatefulWidget {
   const Homebottom({super.key});
+
+  @override
+  State<Homebottom> createState() => _HomebottomState();
+}
+
+class _HomebottomState extends State<Homebottom> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.symmetric(vertical: 50, horizontal: 15),
       width: 450,
       height: 430,
       decoration: BoxDecoration(
@@ -16,7 +24,22 @@ class Homebottom extends StatelessWidget {
         ),
         color: Colors.white,
       ),
-      child: StyledText("hello there"),
+      child: Column(
+        spacing: 20,
+        children: outputLists
+            .map(
+              (terminal) => LoadBtn(
+                outputLabel: terminal.outputLabel,
+                outputIsActive: terminal.isActive,
+                onChanged: (newValue) {
+                  setState(() {
+                    terminal.isActive = newValue;
+                  });
+                },
+              ),
+            )
+            .toList(),
+      ),
     );
   }
 }

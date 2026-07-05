@@ -56,7 +56,7 @@ class CustomTab extends StatelessWidget {
             // ),
             onPressed: () {
               if (!isActive) {
-                Navigator.pushNamed(context, tab.routing);
+                Navigator.pushReplacementNamed(context, tab.routing);
               }
             },
           );
