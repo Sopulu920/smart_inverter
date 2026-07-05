@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_inverter/component/nav_bar.dart';
+import 'package:smart_inverter/component/styled_text.dart';
 import 'package:smart_inverter/screen/home/home.dart';
+import 'package:smart_inverter/screen/home/homeBottom.dart';
 import 'package:smart_inverter/screen/output/output.dart';
 import 'package:smart_inverter/util/route.dart';
 
@@ -9,18 +11,18 @@ void main() {
     MaterialApp(
       initialRoute: routes.home,
       routes: {
-        routes.home: (context) => const home_screen(),
-        routes.output: (context) => const output_screen(),
+        routes.home: (context) => const HomeScreen(),
+        routes.output: (context) => const OutputScreen(),
       },
     ),
   );
 }
 
 int index = 0;
-Color appbar_color = Color(0xFF3cc33e);
+Color appbarColor = Color(0xFF3cc33e);
 
-class home_screen extends StatelessWidget {
-  const home_screen({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +30,19 @@ class home_screen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Home Screen'),
-        backgroundColor: appbar_color,
+        backgroundColor: appbarColor,
       ),
-
-      body: home_body(),
-      bottomNavigationBar: custom_tab(),
+      bottomSheet: Homebottom(),
+      // extendBody: true,
+      // backgroundColor: Colors.white,
+      body: HomeBody(),
+      bottomNavigationBar: CustomTab(),
     );
   }
 }
 
-class output_screen extends StatelessWidget {
-  const output_screen({super.key});
+class OutputScreen extends StatelessWidget {
+  const OutputScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +50,11 @@ class output_screen extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Output Screen'),
-        backgroundColor: appbar_color,
+        backgroundColor: appbarColor,
       ),
 
-      body: output_body(),
-      bottomNavigationBar: custom_tab(),
+      body: OutputBody(),
+      bottomNavigationBar: CustomTab(),
     );
   }
 }

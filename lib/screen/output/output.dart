@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class output_body extends StatelessWidget {
-  const output_body({super.key});
+class OutputBody extends StatelessWidget {
+  const OutputBody({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(child: Text("hello there sir"));
