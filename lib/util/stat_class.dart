@@ -11,9 +11,9 @@ class StatInfo {
 }
 
 List<StatInfo> statList = [
-  StatInfo(statLabel: "Energy Consumed", statValue: "80", statUnit: "J"),
+  StatInfo(statLabel: "Energy Consumed", statValue: "80", statUnit: "Kwh"),
   StatInfo(statLabel: "Voltage", statValue: "80", statUnit: "V"),
-  StatInfo(statLabel: "Output Power", statValue: "80", statUnit: "W"),
+  StatInfo(statLabel: "Output Power", statValue: "80", statUnit: "Kw"),
   StatInfo(statLabel: "Output Current", statValue: "80", statUnit: "A"),
   StatInfo(statLabel: "Frequency", statValue: "80", statUnit: "Hz"),
 ];

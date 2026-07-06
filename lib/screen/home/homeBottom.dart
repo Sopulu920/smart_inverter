@@ -16,7 +16,7 @@ class _HomebottomState extends State<Homebottom> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 50, horizontal: 15),
       width: 450,
-      height: 430,
+      height: 350,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25),

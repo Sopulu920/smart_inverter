@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:smart_inverter/component/battery.dart';
 import 'package:smart_inverter/component/stat_card.dart';
 import 'package:smart_inverter/component/styled_text.dart';
 import 'package:smart_inverter/util/stat_class.dart';
 
+int batteryLevel = 75;
+
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,7 +36,17 @@ class HomeBody extends StatelessWidget {
                 spacing: 50,
                 children: [
                   Column(
-                    children: [StyledText("Battery", fontSize: 24)],
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      StyledText("Battery", fontSize: 24),
+                      Row(
+                        spacing: 10,
+                        children: [
+                          Battery(level: batteryLevel),
+                          StyledText("$batteryLevel%", fontSize: 36),
+                        ],
+                      ),
+                    ],
                   ), //Battery
 
                   SizedBox(
