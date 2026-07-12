@@ -5,43 +5,49 @@ import 'package:smart_inverter/util/power_usage.dart';
 
 class MonitorBody extends StatelessWidget {
   const MonitorBody({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Column(
-        spacing: 30,
-        children: [
-          SizedBox(height: 500, width: 500, child: Graph()),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 40, horizontal: 10),
-            decoration: BoxDecoration(
-              // border: Border.all(width: 3),
-              borderRadius: BorderRadius.all(Radius.circular(9)),
-              color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  blurStyle: BlurStyle.normal,
-                  // spreadRadius: 2,
-                  color: Colors.black.withOpacity(0.3),
-                  blurRadius: 10,
-                  offset: Offset(0, 4),
-                ),
-              ],
+    return SingleChildScrollView(
+      physics:
+          const BouncingScrollPhysics(), // Optional: Adds smooth iOS-style bouncing mechanics
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 8.0,
+          bottom: 20.0,
+        ), // Added bottom padding so content doesn't hit the screen edge
+        child: Column(
+          spacing: 20,
+          children: [
+            SizedBox(height: 500, width: 500, child: Graph()),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(9)),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    blurStyle: BlurStyle.normal,
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
+              child: Column(
+                spacing: 20,
+                children: outputPower
+                    .map(
+                      (power) => OutputProgressionBar(
+                        terminal: power.outputTerminal,
+                        percentage: power.outputPercentage,
+                      ),
+                    )
+                    .toList(),
+              ),
             ),
-            child: Column(
-              spacing: 20,
-              children: outputPower
-                  .map(
-                    (power) => OutputProgressionBar(
-                      terminal: power.outputTerminal,
-                      percentage: power.outputPercentage,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
