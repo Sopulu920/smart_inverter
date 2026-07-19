@@ -13,15 +13,15 @@ class MonitorBody extends StatelessWidget {
           const BouncingScrollPhysics(), // Optional: Adds smooth iOS-style bouncing mechanics
       child: Padding(
         padding: const EdgeInsets.only(
-          top: 8.0,
+          top: 15.0,
           bottom: 20.0,
         ), // Added bottom padding so content doesn't hit the screen edge
         child: Column(
           spacing: 20,
           children: [
-            SizedBox(height: 500, width: 500, child: Graph()),
+            SizedBox(height: 700, width: 500, child: Graph()),
             Container(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(9)),
                 color: Colors.white,
@@ -35,7 +35,7 @@ class MonitorBody extends StatelessWidget {
                 ],
               ),
               child: Column(
-                spacing: 20,
+                spacing: 30,
                 children: outputPower
                     .map(
                       (power) => OutputProgressionBar(

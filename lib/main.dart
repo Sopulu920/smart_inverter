@@ -4,6 +4,7 @@ import 'package:smart_inverter/component/nav_bar.dart';
 import 'package:smart_inverter/screen/home/home.dart';
 import 'package:smart_inverter/screen/home/homeBottom.dart';
 import 'package:smart_inverter/screen/monitor/monitor.dart';
+import 'package:smart_inverter/screen/timeSetter/timeSetter.dart';
 import 'package:smart_inverter/util/route.dart';
 
 void main() {
@@ -13,6 +14,7 @@ void main() {
       routes: {
         routes.home: (context) => const HomeScreen(),
         routes.output: (context) => const MonitortScreen(),
+        routes.pickTime: (context) => const PickTimeScreen(),
       },
     ),
   );
@@ -55,6 +57,26 @@ class MonitortScreen extends StatelessWidget {
 
       body: MonitorBody(),
       bottomNavigationBar: CustomTab(),
+    );
+  }
+}
+
+class PickTimeScreen extends StatelessWidget {
+  const PickTimeScreen({super.key});
+  @override
+  Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text('Set Active Time'),
+        backgroundColor: appbarColor,
+      ),
+
+      body: Timesetter(label: args["title"]),
+      // bottomNavigationBar: CustomTab(),
     );
   }
 }

@@ -25,7 +25,7 @@ class Graph extends StatelessWidget {
   Widget build(BuildContext context) {
     return BarChart(
       BarChartData(
-        maxY: 40,
+        maxY: 70,
         // titlesData: FlTitlesData(show: true),
         // borderData: FlBorderData(show: true),
         barGroups: [
